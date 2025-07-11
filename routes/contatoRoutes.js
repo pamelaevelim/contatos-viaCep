@@ -110,6 +110,38 @@ router.post('/', viaCep, async (req, res) => {
     res.status(200).json(dados)
 })
 
+
+/**
+ * @swagger
+ * /{id}:
+ *  put:
+ *      sumary: Atualizar um contato por ID
+ *      tags: [Contatos]
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID do contato
+ *          content:
+ *              application/json:
+ *          schema:
+ *              type: string
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: "#/components/schemas/CriarContato"
+ *      responses:
+ *          200:
+ *              description: Contato atualizado com sucesso
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/CriarContato'  
+ *          404:
+ *              description: Contato não atualizado
+ */
 //Atualizar por ID
 router.put('/:id', async (req, res) => {
     try {
